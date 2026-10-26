@@ -8,7 +8,7 @@ Optional: to use different images per moment, add any of these
   cheer1 ... cheer4 -> after each logged set (one picked at random)
   celebrate         -> finish screen
 Moments without their own image fall back to mascot.png.
-With no images at all, a drawn placeholder is shown.
+With no images at all, the built-in seal (img/default-mascot.png) is shown.
 
 Transparent PNG/WebP, roughly 480x640 px, looks best.
 After adding images, commit and push them to GitHub.

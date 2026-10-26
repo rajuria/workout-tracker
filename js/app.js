@@ -189,41 +189,17 @@ async function loadMascots() {
     else if (/cheer|yay|go|fight|thumb/.test(lower)) mascots.cheer.push(url);
     else mascots.other.push(url);
   }
-  // No images found: the drawn placeholder is used
+  // No images found: the built-in seal (DEFAULT_MASCOT) is used
 }
+
+// Built-in seal, used when the mascot/ folder has no images
+const DEFAULT_MASCOT = 'img/default-mascot.png';
 
 function mascotImage(mood) {
   if (mascots[mood].length) return pick(mascots[mood]);
   const any = [...mascots.other, ...mascots.idle, ...mascots.cheer, ...mascots.celebrate];
   if (any.length) return pick(any);
-  return placeholderMascot(mood);
-}
-
-// Simple drawn stand-in until you add your own images
-function placeholderMascot(mood) {
-  const mouth = {
-    idle: '<path d="M88 132 q12 8 24 0" stroke="#7a3b4a" stroke-width="3" fill="none" stroke-linecap="round"/>',
-    cheer: '<path d="M86 128 q14 18 28 0 z" fill="#7a3b4a"/>',
-    celebrate: '<path d="M84 126 q16 24 32 0 z" fill="#7a3b4a"/>',
-  }[mood] || '';
-  const eyes = mood === 'celebrate'
-    ? '<path d="M70 108 q8 -10 16 0 M114 108 q8 -10 16 0" stroke="#3a2a4a" stroke-width="4" fill="none" stroke-linecap="round"/>'
-    : '<ellipse cx="78" cy="108" rx="8" ry="11" fill="#3a2a4a"/><ellipse cx="122" cy="108" rx="8" ry="11" fill="#3a2a4a"/>' +
-      '<circle cx="81" cy="103" r="3" fill="#fff"/><circle cx="125" cy="103" r="3" fill="#fff"/>';
-  const arms = mood === 'idle' ? '' :
-    '<path d="M50 190 L24 140 M150 190 L176 140" stroke="#ffd9c7" stroke-width="12" stroke-linecap="round"/>';
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="240" viewBox="0 0 200 240">
-    ${arms}
-    <path d="M52 170 q48 -20 96 0 l10 70 h-116 z" fill="#e2457a"/>
-    <path d="M40 120 q-6 -86 60 -90 q66 4 60 90 l6 60 q-20 -10 -26 -40 l-80 0 q-6 30 -26 40 z" fill="#ff8fb3"/>
-    <ellipse cx="100" cy="112" rx="48" ry="50" fill="#ffe6d9"/>
-    <path d="M52 100 q10 -50 48 -52 q38 2 48 52 q-22 -8 -30 -30 q-14 22 -40 26 q-14 -2 -26 4 z" fill="#ff8fb3"/>
-    ${eyes}
-    <ellipse cx="66" cy="126" rx="8" ry="4" fill="#ffb3c6"/><ellipse cx="134" cy="126" rx="8" ry="4" fill="#ffb3c6"/>
-    ${mouth}
-    <text x="100" y="232" font-size="12" text-anchor="middle" fill="#fff" font-family="sans-serif">placeholder</text>
-  </svg>`;
-  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  return DEFAULT_MASCOT;
 }
 
 function setMascot(mood, msg) {
@@ -759,7 +735,7 @@ async function init() {
   applyTheme();
   renderChips();
   setupLibraryFilters();
-  setMascot('idle', pick(MSG.idle)); // placeholder first, real images once loaded
+  setMascot('idle', pick(MSG.idle)); // built-in seal first, mascot/ images once loaded
   try {
     const res = await fetch('data/exercises.json');
     DB = await res.json();
