@@ -147,7 +147,8 @@ $('#themeBtn').addEventListener('click', () => {
 const mascots = { idle: [], cheer: [], celebrate: [], other: [] };
 
 // Names checked when the server can't list the folder (e.g. GitHub Pages)
-const MASCOT_NAMES = ['idle', 'cheer1', 'cheer2', 'cheer3', 'cheer4', 'celebrate'];
+// A single "mascot" image is used for every mood
+const MASCOT_NAMES = ['mascot', 'idle', 'cheer1', 'cheer2', 'cheer3', 'cheer4', 'celebrate'];
 const MASCOT_EXTS = ['png', 'webp'];
 
 // Some servers (python, nginx) can list the folder: then any file name works
