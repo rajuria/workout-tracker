@@ -87,7 +87,7 @@ details > summary { cursor: pointer; font-weight: 600; }
 
 /* ---------- Mascot ---------- */
 .mascot-card { display: flex; align-items: flex-end; gap: 10px; margin-top: 14px; }
-.mascot-img { width: 110px; height: 130px; object-fit: contain; flex: none; }
+.mascot-img { width: auto; height: auto; max-width: 160px; max-height: 130px; flex: none; }
 .bubble {
   position: relative; background: var(--accent-soft); color: var(--text);
   padding: 10px 14px; border-radius: 16px; margin: 0 0 20px; font-weight: 500;
@@ -180,7 +180,7 @@ tr.done .log-btn { background: var(--ok); border-color: var(--ok); color: #fff; 
   background: var(--card); border: 1px solid var(--accent); border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,.2);
   animation: pop .25s ease-out;
 }
-.toast img { width: 64px; height: 72px; object-fit: contain; flex: none; }
+.toast img { width: auto; height: auto; max-width: 96px; max-height: 72px; flex: none; }
 .toast p { margin: 0; font-weight: 600; }
 @keyframes pop { from { transform: translate(-50%, -12px); opacity: 0; } }
 
@@ -210,7 +210,7 @@ tr.done .log-btn { background: var(--ok); border-color: var(--ok); color: #fff; 
 }
 .celebrate-box h2 { font-size: 1.4rem; color: var(--accent); text-transform: none; letter-spacing: 0; margin: 8px 0; }
 .celebrate-box .bubble { margin: 8px 0; }
-.celebrate-img { width: 180px; height: 210px; object-fit: contain; }
+.celebrate-img { width: auto; height: auto; max-width: min(260px, 100%); max-height: 210px; }
 @keyframes pop2 { from { transform: scale(.85); opacity: 0; } }
 .confetti { position: absolute; inset: 0; pointer-events: none; }
 .confetti i {

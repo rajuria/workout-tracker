@@ -212,7 +212,7 @@ function placeholderMascot(mood) {
       '<circle cx="81" cy="103" r="3" fill="#fff"/><circle cx="125" cy="103" r="3" fill="#fff"/>';
   const arms = mood === 'idle' ? '' :
     '<path d="M50 190 L24 140 M150 190 L176 140" stroke="#ffd9c7" stroke-width="12" stroke-linecap="round"/>';
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="240" viewBox="0 0 200 240">
     ${arms}
     <path d="M52 170 q48 -20 96 0 l10 70 h-116 z" fill="#e2457a"/>
     <path d="M40 120 q-6 -86 60 -90 q66 4 60 90 l6 60 q-20 -10 -26 -40 l-80 0 q-6 30 -26 40 z" fill="#ff8fb3"/>
