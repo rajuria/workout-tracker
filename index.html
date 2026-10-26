@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Workout Tracker</title>
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Workout Tracker</h1>
+    <button id="themeBtn" class="icon-btn" title="Theme: auto" aria-label="Change theme">🌓</button>
+  </header>
+
+  <main>
+    <!-- WORKOUT TAB -->
+    <section id="tab-workout" class="tab active" aria-label="Workout">
+      <div class="mascot-card">
+        <img id="mascotImg" alt="Mascot" class="mascot-img">
+        <p id="mascotSay" class="bubble">Ready when you are!</p>
+      </div>
+
+      <details id="planner" class="card" open>
+        <summary>Plan a workout</summary>
+        <h2>Muscles</h2>
+        <div class="chips" id="muscleChips"></div>
+        <h2>My equipment</h2>
+        <div class="chips" id="equipChips"></div>
+        <button id="generateBtn" class="btn primary wide">Generate workout</button>
+      </details>
+
+      <div id="workoutArea"></div>
+    </section>
+
+    <!-- LIBRARY TAB -->
+    <section id="tab-library" class="tab" aria-label="Library">
+      <div class="filters card">
+        <input id="libSearch" type="search" placeholder="Search exercises…" autocomplete="off">
+        <div class="row">
+          <select id="libMuscle" aria-label="Muscle"></select>
+          <select id="libEquip" aria-label="Equipment"></select>
+        </div>
+        <p id="libCount" class="muted small"></p>
+      </div>
+      <div id="libList"></div>
+    </section>
+
+    <!-- HISTORY TAB -->
+    <section id="tab-history" class="tab" aria-label="History">
+      <div id="historyList"></div>
+    </section>
+  </main>
+
+  <!-- Rest timer bar -->
+  <div id="restBar" class="rest-bar" hidden>
+    <div class="rest-progress"><div id="restFill"></div></div>
+    <span>Rest</span>
+    <strong id="restTime">0:00</strong>
+    <button id="restAdd" class="btn small">+15s</button>
+    <button id="restSkip" class="btn small">Skip</button>
+  </div>
+
+  <!-- Cheer toast -->
+  <div id="toast" class="toast" hidden>
+    <img id="toastImg" alt="">
+    <p id="toastMsg"></p>
+  </div>
+
+  <!-- Celebration screen -->
+  <div id="celebrate" class="overlay" hidden>
+    <div class="celebrate-box">
+      <div class="confetti" aria-hidden="true"></div>
+      <img id="celebrateImg" alt="Mascot celebrating" class="celebrate-img">
+      <h2>Workout complete!</h2>
+      <p id="celebrateMsg" class="bubble"></p>
+      <div id="celebrateStats" class="stats"></div>
+      <button id="celebrateClose" class="btn primary wide">Yay! 🎉</button>
+    </div>
+  </div>
+
+  <nav class="tabbar">
+    <button data-tab="workout" class="active"><span>🏋️</span>Workout</button>
+    <button data-tab="library"><span>📚</span>Library</button>
+    <button data-tab="history"><span>🗓️</span>History</button>
+  </nav>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
